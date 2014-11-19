@@ -1,0 +1,4 @@
+mac
+===
+
+Configure my Mac.
