@@ -1,0 +1,11 @@
+{
+	"extensions":
+	[
+		"ru",
+		"podspec",
+		"Cheffile",
+		".irbrc",
+		"Podfile",
+    "Brewfile"
+	]
+}
