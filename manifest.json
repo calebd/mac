@@ -68,6 +68,14 @@
         "vmware-fusion",
         "transmission"
       ]
+    },
+    {
+      "type": "brew",
+      "arguments": [ "cask", "cleanup" ]
+    },
+    {
+      "type": "brew",
+      "arguments": [ "cleanup" ]
     }
   ]
 }
