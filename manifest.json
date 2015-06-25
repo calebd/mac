@@ -1,0 +1,41 @@
+{
+  "tasks": [
+    {
+      "type": "symlink",
+      "source": "$HOME/Library/Application Support/Sublime Text 2/Installed Packages",
+      "destination": "Sublime/Installed Packages"
+    },
+    {
+      "type": "symlink",
+      "source": "$HOME/Library/Application Support/Sublime Text 2/Packages/User",
+      "destination": "Sublime/User Packages"
+    },
+    {
+      "type": "symlink",
+      "source": "$HOME/Library/Developer/Xcode/UserData/FontAndColorThemes",
+      "destination": "Xcode/Themes"
+    },
+    {
+      "type": "brew",
+      "arguments": [ "update" ]
+    },
+    {
+      "type": "brew",
+      "arguments": [ "upgrade", "--all" ]
+    },
+    {
+      "type": "brewinstall",
+      "packages": [
+        "rbenv",
+        "ruby-build",
+        "redis",
+        "postgres",
+        "heroku",
+        "zsh-completions",
+        "git",
+        "kdiff3",
+        "carthage"
+      ]
+    }
+  ]
+}
