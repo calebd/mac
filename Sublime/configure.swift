@@ -7,30 +7,6 @@ struct SymbolicLink {
     var destinationPath: String
 }
 
-func scriptRootPath() -> String {
-    return .pathWithComponents([ fileManager.currentDirectoryPath, __FILE__.stringByDeletingLastPathComponent ])
-}
-
-func sublimeRootPath() -> String {
-    return NSSearchPathForDirectoriesInDomains(.ApplicationSupportDirectory, .UserDomainMask, true).first as! String
-}
-
-func localInstalledPackagesPath() -> String {
-    return .pathWithComponents([ scriptRootPath(), "Installed Packages" ])
-}
-
-func remoteInstalledPackagesPath() -> String {
-    return .pathWithComponents([ sublimeRootPath(), "Sublime Text 2", "Installed Packages" ])
-}
-
-func localUserPackagesPath() -> String {
-    return .pathWithComponents([ scriptRootPath(), "User Packages" ])
-}
-
-func remoteUserPackagesPath() -> String {
-    return .pathWithComponents([ sublimeRootPath(), "Sublime Text 2", "Packages", "User" ])
-}
-
 ///
 /// Creates a symbolic link at `linkPath` that points to `destinationPath`.
 ///
@@ -39,6 +15,32 @@ func createSymbolicLink(symbolicLink: SymbolicLink) {
     fileManager.removeItemAtPath(symbolicLink.linkPath, error: nil)
     fileManager.createSymbolicLinkAtPath(symbolicLink.linkPath, withDestinationPath: symbolicLink.destinationPath, error: nil)
 }
+
+func scriptRootPath() -> String {
+    return __FILE__.stringByDeletingLastPathComponent
+}
+
+func sublimeRootPath() -> String {
+    return "~/Library/Application Support/Sublime Text 2".stringByExpandingTildeInPath
+}
+
+func localInstalledPackagesPath() -> String {
+    return .pathWithComponents([ scriptRootPath(), "Installed Packages" ])
+}
+
+func remoteInstalledPackagesPath() -> String {
+    return .pathWithComponents([ sublimeRootPath(), "Installed Packages" ])
+}
+
+func localUserPackagesPath() -> String {
+    return .pathWithComponents([ scriptRootPath(), "User Packages" ])
+}
+
+func remoteUserPackagesPath() -> String {
+    return .pathWithComponents([ sublimeRootPath(), "Packages", "User" ])
+}
+
+println("Configuring Sublime packages.")
 
 createSymbolicLink(SymbolicLink(
     linkPath: remoteInstalledPackagesPath(),
