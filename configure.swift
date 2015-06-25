@@ -143,31 +143,6 @@ struct BrewTask: TaskType, DebugPrintable {
     }
 }
 
-struct BrewInstallTask: TaskType, DebugPrintable {
-    var packages: [String]
-    var task: BrewTask {
-        let arguments = [ "install" ] + packages
-        return BrewTask(arguments: arguments)
-    }
-
-    init?(json: JSON) {
-        if let packages = json["packages"].array?.map({ $0.string }) {
-            self.packages = compact(packages)
-        }
-        else {
-            return nil
-        }
-    }
-
-    var debugDescription: String {
-        return task.debugDescription
-    }
-
-    func perform() -> Bool {
-        return task.perform()
-    }
-}
-
 func decode(json: JSON) -> TaskType? {
     return json["type"].string.flatMap({
         switch $0 {
@@ -175,8 +150,6 @@ func decode(json: JSON) -> TaskType? {
             return SymbolicLinkTask(json: json)
         case "brew":
             return BrewTask(json: json)
-        case "brewinstall":
-            return BrewInstallTask(json: json)
         default:
             return nil
         }

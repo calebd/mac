@@ -24,8 +24,13 @@
       "arguments": [ "upgrade", "--all" ]
     },
     {
-      "type": "brewinstall",
-      "packages": [
+      "type": "brew",
+      "arguments": [ "tap", "homebrew/services" ]
+    },
+    {
+      "type": "brew",
+      "arguments": [
+        "install",
         "rbenv",
         "ruby-build",
         "redis",
@@ -34,7 +39,34 @@
         "zsh-completions",
         "git",
         "kdiff3",
-        "carthage"
+        "carthage",
+        "caskroom/cask/brew-cask"
+      ]
+    },
+    {
+      "type": "brew",
+      "arguments": [
+        "cask",
+        "install",
+        "gitx",
+        "skype",
+        "rdio",
+        "alfred",
+        "minecraft",
+        "reveal",
+        "reflector",
+        "hex-fiend",
+        "sublime-text",
+        "hockeyapp",
+        "slate",
+        "dropbox",
+        "omnidisksweeper",
+        "mailbox",
+        "adobe-creative-cloud",
+        "sonos",
+        "steam",
+        "vmware-fusion",
+        "transmission"
       ]
     }
   ]
