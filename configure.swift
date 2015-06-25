@@ -199,7 +199,6 @@ struct Manifest {
 
 func perform(tasks: [TaskType]) -> Bool {
     for task in tasks {
-        println(task)
         task.perform()
     }
     return true
