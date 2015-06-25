@@ -111,8 +111,7 @@ struct SymbolicLinkTask: TaskType, DebugPrintable {
     func perform() -> Bool {
         fileManager.createDirectoryAtPath(linkPath, withIntermediateDirectories: true, attributes: nil, error: nil)
         fileManager.removeItemAtPath(linkPath, error: nil)
-        fileManager.createSymbolicLinkAtPath(linkPath, withDestinationPath: destinationPath, error: nil)
-        return true
+        return fileManager.createSymbolicLinkAtPath(linkPath, withDestinationPath: destinationPath, error: nil)
     }
 }
 
@@ -199,7 +198,9 @@ struct Manifest {
 
 func perform(tasks: [TaskType]) -> Bool {
     for task in tasks {
-        task.perform()
+        if !task.perform() {
+            return false
+        }
     }
     return true
 }
@@ -213,5 +214,7 @@ let manifest = NSData(contentsOfFile: manifestPath)
     .flatMap({ Manifest(json: $0) })
 
 if let tasks = manifest?.tasks {
-    perform(tasks)
+    if !perform(tasks) {
+        exit(1)
+    }
 }
