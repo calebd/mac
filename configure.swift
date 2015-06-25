@@ -207,11 +207,7 @@ func perform(tasks: [TaskType]) -> Bool {
 
 // MARK: - Execute
 
-let manifestPath = String.pathWithComponents([
-    fileManager.currentDirectoryPath,
-    __FILE__.stringByDeletingLastPathComponent,
-    "manifest.json"
-])
+let manifestPath = String.pathWithComponents([ scriptRootPath, "manifest.json" ])
 
 let manifest = NSData(contentsOfFile: manifestPath)
     .flatMap({ JSON(data: $0) })

@@ -1,4 +1,3 @@
-mac
-===
+# mac
 
 Configure my Mac.
