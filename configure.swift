@@ -2,7 +2,9 @@ import Foundation
 
 // MARK: - Setup
 
+let fileManager = NSFileManager()
 let brewPath = "/usr/local/bin/brew"
+let scriptRootPath = String.pathWithComponents([ fileManager.currentDirectoryPath, __FILE__.stringByDeletingLastPathComponent ])
 
 func compact<T, S: SequenceType where S.Generator.Element == T?>(sequence: S) -> [T] {
     return reduce(sequence, [T](), { array, element in
@@ -84,7 +86,9 @@ public struct JSON {
     }
 }
 
-protocol TaskType {}
+protocol TaskType {
+    func perform() -> Bool
+}
 
 struct SymbolicLinkTask: TaskType, DebugPrintable {
     var linkPath: String
@@ -93,8 +97,8 @@ struct SymbolicLinkTask: TaskType, DebugPrintable {
     init?(json: JSON) {
         switch (json["source"].string, json["destination"].string) {
         case (.Some(let source), .Some(let destination)):
-            linkPath = source
-            destinationPath = destination
+            linkPath = source.stringByExpandingTildeInPath
+            destinationPath = String.pathWithComponents([ scriptRootPath, destination ])
         default:
             return nil
         }
@@ -102,6 +106,13 @@ struct SymbolicLinkTask: TaskType, DebugPrintable {
 
     var debugDescription: String {
         return "mkdir -p \"\(linkPath)\";rm -rf \"\(linkPath)\";ln -s \"\(linkPath)\" \"\(destinationPath)\""
+    }
+
+    func perform() -> Bool {
+        fileManager.createDirectoryAtPath(linkPath, withIntermediateDirectories: true, attributes: nil, error: nil)
+        fileManager.removeItemAtPath(linkPath, error: nil)
+        fileManager.createSymbolicLinkAtPath(linkPath, withDestinationPath: destinationPath, error: nil)
+        return true
     }
 }
 
@@ -125,10 +136,20 @@ struct BrewTask: TaskType, DebugPrintable {
         let array = " ".join(arguments)
         return "\(brewPath) \(array)"
     }
+
+    func perform() -> Bool {
+        let task = NSTask.launchedTaskWithLaunchPath(brewPath, arguments: arguments)
+        task.waitUntilExit()
+        return task.terminationStatus == 0
+    }
 }
 
 struct BrewInstallTask: TaskType, DebugPrintable {
     var packages: [String]
+    var task: BrewTask {
+        let arguments = [ "install" ] + packages
+        return BrewTask(arguments: arguments)
+    }
 
     init?(json: JSON) {
         if let packages = json["packages"].array?.map({ $0.string }) {
@@ -140,8 +161,11 @@ struct BrewInstallTask: TaskType, DebugPrintable {
     }
 
     var debugDescription: String {
-        let array = " ".join(packages.map({ "'\($0)'" }))
-        return "\(brewPath) install \(array)"
+        return task.debugDescription
+    }
+
+    func perform() -> Bool {
+        return task.perform()
     }
 }
 
@@ -173,9 +197,15 @@ struct Manifest {
     }
 }
 
-// MARK: - Execute
+func perform(tasks: [TaskType]) -> Bool {
+    for task in tasks {
+        println(task)
+        task.perform()
+    }
+    return true
+}
 
-let fileManager = NSFileManager()
+// MARK: - Execute
 
 let manifestPath = String.pathWithComponents([
     fileManager.currentDirectoryPath,
@@ -186,4 +216,7 @@ let manifestPath = String.pathWithComponents([
 let manifest = NSData(contentsOfFile: manifestPath)
     .flatMap({ JSON(data: $0) })
     .flatMap({ Manifest(json: $0) })
-println(manifest?.tasks)
+
+if let tasks = manifest?.tasks {
+    perform(tasks)
+}

@@ -2,17 +2,17 @@
   "tasks": [
     {
       "type": "symlink",
-      "source": "$HOME/Library/Application Support/Sublime Text 2/Installed Packages",
+      "source": "~/Library/Application Support/Sublime Text 2/Installed Packages",
       "destination": "Sublime/Installed Packages"
     },
     {
       "type": "symlink",
-      "source": "$HOME/Library/Application Support/Sublime Text 2/Packages/User",
+      "source": "~/Library/Application Support/Sublime Text 2/Packages/User",
       "destination": "Sublime/User Packages"
     },
     {
       "type": "symlink",
-      "source": "$HOME/Library/Developer/Xcode/UserData/FontAndColorThemes",
+      "source": "~/Library/Developer/Xcode/UserData/FontAndColorThemes",
       "destination": "Xcode/Themes"
     },
     {
