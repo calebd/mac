@@ -1,0 +1,11 @@
+.DS_Store
+.sass-cache/
+Pods
+*xcuserdata/
+*xcuserdatad/
+*.xcworkspace/
+.ruby-version
+log/
+Procfile.dev
+dump.rdb
+Carthage/

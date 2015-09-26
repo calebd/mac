@@ -1,0 +1,15 @@
+[user]
+	name = Caleb Davenport
+	email = caleb@calebd.me
+[status]
+	color = auto
+[push]
+	default = current
+[credential]
+	helper = osxkeychain
+[github]
+	user = calebd
+[core]
+  excludesfile = ~/.gitignore
+[merge]
+  tool = kdiff3
