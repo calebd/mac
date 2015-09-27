@@ -18,7 +18,7 @@ source = File.join(HOME, "Library", "Developer", "Xcode", "UserData", "FontAndCo
 destination = File.join(Dir.pwd, "Xcode", "Themes")
 force_link(source, destination)
 
-[ "gemrc", "gitconfig", "gitignore", "zsh", "zshrc" ].each do |file|
+[ "gemrc", "gitconfig", "gitignore", "zsh", "zshrc", "slate" ].each do |file|
   source = File.join(HOME, ".#{file}")
   destination = File.join(Dir.pwd, "Dotfiles", file)
   `rm -rf "#{source}";ln -s "#{destination}" "#{source}"`
