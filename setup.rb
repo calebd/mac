@@ -24,11 +24,6 @@ force_link(source, destination)
   `rm -rf "#{source}";ln -s "#{destination}" "#{source}"`
 end
 
-source = File.join(HOME, "Brewfile")
-destination = File.join(Dir.pwd, "Brewfile")
-`rm -f "#{source}";ln -Ffhs "#{destination}" "#{source}"`
-`chflags -h hidden ~/Brewfile`
-
 `defaults write "com.apple.dock" "show-process-indicators" -bool false`
 `defaults write "com.apple.dock" "autohide" -bool true`
 `defaults write "com.apple.dock" "mineffect" "scale"`
