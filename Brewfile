@@ -11,6 +11,7 @@ brew 'zsh-completions'
 brew 'git'
 brew 'kdiff3'
 brew 'carthage'
+brew 'tree'
 
 cask 'alfred'
 cask 'dropbox'

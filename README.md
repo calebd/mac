@@ -4,6 +4,7 @@ Configure my Mac.
 
 ```sh
 chsh -s /bin/zsh
+xcode-select --install
 ```
 
 ```sh

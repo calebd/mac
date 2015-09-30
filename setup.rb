@@ -27,3 +27,5 @@ end
 `defaults write "com.apple.dock" "show-process-indicators" -bool false`
 `defaults write "com.apple.dock" "autohide" -bool true`
 `defaults write "com.apple.dock" "mineffect" "scale"`
+`defaults write "nl.frim.GitX" "PBEnableGist" -bool false`
+`defaults write "nl.frim.GitX" "PBEnableGravatar" -bool false`
