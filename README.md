@@ -23,3 +23,4 @@ ruby setup.rb
 ## Safari Extensions
 
 - [JSON Formatter](https://github.com/rfletcher/safari-json-formatter)
+- [Un-UTM](http://joe.sh/un-utm)
