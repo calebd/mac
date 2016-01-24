@@ -30,3 +30,4 @@ end
 `defaults write "nl.frim.GitX" "PBEnableGist" -bool false`
 `defaults write "nl.frim.GitX" "PBEnableGravatar" -bool false`
 `defaults write "com.apple.terminal" "ShowLineMarks" -bool false`
+`defaults -currentHost write "com.apple.ImageCapture" "disableHotPlug" -bool true`
