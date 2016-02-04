@@ -21,10 +21,12 @@ end)
 
 hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "Down", function()
     local window = hs.window.focusedWindow()
-
     local frame = window:frame()
-    frame.w = 1000
-    frame.h = 800
-
+    local frame = hs.geometry.rect(
+        frame.x + frame.w * 0.5 - frame.w * 0.8 * 0.5,
+        frame.y + frame.h * 0.5 - frame.h * 0.8 * 0.5,
+        frame.w * 0.8,
+        frame.h * 0.8
+    )
     window:setFrame(frame)
 end)
