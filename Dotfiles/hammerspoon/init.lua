@@ -1,3 +1,5 @@
+hs.window.animationDuration = 0
+
 hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "Up", function()
     local window = hs.window.focusedWindow()
     local screen = window:screen():frame()
