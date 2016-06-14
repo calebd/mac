@@ -9,3 +9,4 @@ log/
 Procfile.dev
 dump.rdb
 Carthage/
+fastlane/
