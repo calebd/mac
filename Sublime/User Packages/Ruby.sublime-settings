@@ -6,6 +6,7 @@
 		"Cheffile",
 		".irbrc",
 		"Podfile",
-    "Brewfile"
+    "Brewfile",
+    "Fastfile"
 	]
 }
