@@ -1,12 +1,11 @@
 {
-	"extensions":
-	[
+	"extensions": [
 		"ru",
 		"podspec",
 		"Cheffile",
 		".irbrc",
 		"Podfile",
-    "Brewfile",
-    "Fastfile"
+		"Brewfile",
+		"Fastfile"
 	]
 }
