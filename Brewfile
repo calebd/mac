@@ -12,6 +12,7 @@ brew 'git'
 brew 'kdiff3'
 brew 'carthage'
 brew 'tree'
+brew 'chisel'
 
 cask 'alfred'
 cask 'dropbox'
