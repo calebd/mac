@@ -10,3 +10,4 @@ Procfile.dev
 dump.rdb
 Carthage/
 fastlane/
+.build/
