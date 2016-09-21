@@ -24,11 +24,11 @@ cmd_prompt_project_name() {
 }
 
 cmd_prompt_git_branch() {
-  if [ ! git ls-files >& /dev/null ]; then
+	if [ ! git ls-files >& /dev/null ]; then
 		return;
-  fi;
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  echo " (${ref#refs/heads/})"
+	fi;
+	ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+	echo " (${ref#refs/heads/})"
 }
 
 PROMPT='$(cmd_prompt_red_color)$(cmd_prompt_project_name)$(cmd_prompt_git_branch) -> $(cmd_prompt_reset_color)'
