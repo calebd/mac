@@ -6,11 +6,11 @@ def force_link(source, destination)
   `ln -Ffhs "#{destination}" "#{source}"`
 end
 
-source = File.join(HOME, "Library", "Application Support", "Sublime Text 2", "Installed Packages")
+source = File.join(HOME, "Library", "Application Support", "Sublime Text 3", "Installed Packages")
 destination = File.join(Dir.pwd, "Sublime", "Installed Packages")
 force_link(source, destination)
 
-source = File.join(HOME, "Library", "Application Support", "Sublime Text 2", "Packages", "User")
+source = File.join(HOME, "Library", "Application Support", "Sublime Text 3", "Packages", "User")
 destination = File.join(Dir.pwd, "Sublime", "User Packages")
 force_link(source, destination)
 
@@ -18,7 +18,7 @@ source = File.join(HOME, "Library", "Developer", "Xcode", "UserData", "FontAndCo
 destination = File.join(Dir.pwd, "Xcode", "Themes")
 force_link(source, destination)
 
-[ "gemrc", "gitconfig", "gitignore", "zsh", "zshrc", "hammerspoon", "lldbinit" ].each do |file|
+["gemrc", "gitconfig", "gitignore", "zsh", "zshrc", "hammerspoon", "lldbinit"].each do |file|
   source = File.join(HOME, ".#{file}")
   destination = File.join(Dir.pwd, "Dotfiles", file)
   `rm -rf "#{source}";ln -s "#{destination}" "#{source}"`
