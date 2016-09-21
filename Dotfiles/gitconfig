@@ -10,6 +10,6 @@
 [github]
 	user = calebd
 [core]
-  excludesfile = ~/.gitignore
+	excludesfile = ~/.gitignore
 [merge]
-  tool = kdiff3
+	tool = kdiff3
