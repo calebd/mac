@@ -3,3 +3,7 @@ x() {
   [[ -z $project ]] && project="$(ls | grep '.*\.xcodeproj$')"
   [[ -n $project ]] && open $project
 }
+
+c() {
+  cd ~/Code/$1;
+}
