@@ -31,3 +31,6 @@ end
 `defaults write "nl.frim.GitX" "PBEnableGravatar" -bool false`
 `defaults write "com.apple.terminal" "ShowLineMarks" -bool false`
 `defaults -currentHost write "com.apple.ImageCapture" "disableHotPlug" -bool true`
+`defaults write "com.apple.dt.Xcode" "DVTTextShowLineNumbers" -bool true`
+`defaults write "com.apple.dt.Xcode" "DVTTextEditorWrapsLines" -bool false`
+`defaults write "com.apple.dt.Xcode" "IDESourceControlAutomaticallyAddNewFiles" -bool false`
