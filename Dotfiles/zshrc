@@ -15,10 +15,7 @@ for file (~/.zsh/*.zsh) source $file
 # }
 
 # Colors
-# export CLICOLOR=1
-# autoload colors; colors;
 # export LSCOLORS="Gxfxcxdxbxegedabagacad"
-# setopt PROMPT_SUBST
 
 # Load functions and completion
 # fpath=(~/.zsh/functions /usr/local/share/zsh-completions $fpath)
