@@ -5,6 +5,7 @@ brew 'git'
 brew 'carthage'
 brew 'tree'
 brew 'chisel'
+brew 'heroku'
 
 cask 'hex-fiend'
 cask 'omnidisksweeper'
