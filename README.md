@@ -8,16 +8,18 @@ xcode-select --install
 ```
 
 ```sh
+# Install homebrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew tap Homebrew/bundle
-```
 
-```sh
+# Download this repository
 mkdir -p ~/Documents/Code/calebd
 cd ~/Documents/Code/calebd
 git clone https://github.com/calebd/mac
 cd mac
+
+# Run setup scripts
 ruby setup.rb
+brew bundle
 ```
 
 ## Safari Extensions
