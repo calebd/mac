@@ -6,13 +6,13 @@ def force_link(source, destination)
   `ln -Ffhs "#{destination}" "#{source}"`
 end
 
-source = File.join(HOME, "Library", "Application Support", "Sublime Text 3", "Installed Packages")
-destination = File.join(Dir.pwd, "Sublime", "Installed Packages")
-force_link(source, destination)
+# source = File.join(HOME, "Library", "Application Support", "Sublime Text 3", "Installed Packages")
+# destination = File.join(Dir.pwd, "Sublime", "Installed Packages")
+# force_link(source, destination)
 
-source = File.join(HOME, "Library", "Application Support", "Sublime Text 3", "Packages", "User")
-destination = File.join(Dir.pwd, "Sublime", "User Packages")
-force_link(source, destination)
+# source = File.join(HOME, "Library", "Application Support", "Sublime Text 3", "Packages", "User")
+# destination = File.join(Dir.pwd, "Sublime", "User Packages")
+# force_link(source, destination)
 
 source = File.join(HOME, "Library", "Developer", "Xcode", "UserData", "FontAndColorThemes")
 destination = File.join(Dir.pwd, "Xcode", "Themes")
