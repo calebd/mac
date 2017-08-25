@@ -20,6 +20,8 @@ task :defaults do
   `defaults write "com.apple.dt.Xcode" "IDESourceControlAutomaticallyAddNewFiles" -bool false`
   `defaults write "com.apple.dt.Xcode" "DVTTextEditorTrimWhitespaceOnlyLines" -bool true`
   `defaults write "com.apple.dt.Xcode" "DVTTextEditorTrimTrailingWhitespace" -bool true`
+  `defaults write "com.tapbots.TweetbotMac" "showStatusItem" -bool false`
+  `defaults write "com.tapbots.TweetbotMac" "soundType" -int 1`
 end
 
 desc "Link all dotfiles to files in this repository."
