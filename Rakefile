@@ -11,8 +11,6 @@ task :defaults do
   `defaults write "com.apple.dock" "show-process-indicators" -bool false`
   `defaults write "com.apple.dock" "autohide" -bool true`
   `defaults write "com.apple.dock" "mineffect" "scale"`
-  `defaults write "nl.frim.GitX" "PBEnableGist" -bool false`
-  `defaults write "nl.frim.GitX" "PBEnableGravatar" -bool false`
   `defaults -currentHost write "com.apple.ImageCapture" "disableHotPlug" -bool true`
   `defaults write "com.apple.dt.Xcode" "DVTTextShowLineNumbers" -bool true`
   `defaults write "com.apple.dt.Xcode" "DVTTextEditorWrapsLines" -bool true`
