@@ -27,6 +27,9 @@ task :defaults do
 
   # Terminal.app
   `defaults write "com.apple.terminal" "ShowLineMarks" -bool false`
+
+  # 1Password.app
+  `defaults write "2BUA8C4S2C.com.agilebits.onepassword-osx-helper" "animateFill" -bool false`
 end
 
 desc "Link all dotfiles to files in this repository."
