@@ -2,15 +2,3 @@
 
 # Load files
 for file (~/.zsh/*.zsh) source $file
-
-# Colors
-# export LSCOLORS="Gxfxcxdxbxegedabagacad"
-
-# Load functions and completion
-# fpath=(~/.zsh/functions /usr/local/share/zsh-completions $fpath)
-# autoload -U compinit
-# compinit
-# autoload -U ~/.zsh/functions/*(:t)
-
-# Matches case insensitive for lowercase
-# zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
