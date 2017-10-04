@@ -5,7 +5,7 @@ autoload -U compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # zsh-completions
-fpath=(path/to/zsh-completions/src $fpath)
+# fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Code function
 compdef '_files -W ~/Code -/' c
